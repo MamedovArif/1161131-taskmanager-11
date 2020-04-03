@@ -9,7 +9,7 @@ const createBoardTemplate = () => {
 
       <div class="board__tasks"></div>
     </section>`
-  )
-}
+  );
+};
 
-export { createBoardTemplate };
+export {createBoardTemplate};

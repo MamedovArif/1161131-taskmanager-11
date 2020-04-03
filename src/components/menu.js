@@ -28,7 +28,7 @@ const createSiteMenuTemplate = () => {
         >STATISTICS</label
       >
     </section>`
-  )
+  );
 };
 
 export {createSiteMenuTemplate};

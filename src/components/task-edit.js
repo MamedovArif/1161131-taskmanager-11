@@ -198,6 +198,6 @@ const createTaskEditTemplate = () => {
       </form>
     </article>`
   );
-}
+};
 
-export { createTaskEditTemplate };
+export {createTaskEditTemplate};

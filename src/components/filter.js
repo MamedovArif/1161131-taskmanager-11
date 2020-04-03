@@ -59,7 +59,7 @@ const createFilterTemplate = () => {
         >Archive <span class="filter__archive-count">115</span></label
       >
     </section>`
-  )
-}
+  );
+};
 
-export { createFilterTemplate };
+export {createFilterTemplate};

@@ -43,7 +43,7 @@ const createTaskTemplate = () => {
         </div>
       </div>
     </article>`
-  )
-}
+  );
+};
 
-export { createTaskTemplate };
+export {createTaskTemplate};
