@@ -1,9 +1,10 @@
-import {createSiteMenuTemplate} from './components/menu.js';
-import {createFilterTemplate} from './components/filter.js';
 import {createBoardTemplate} from './components/board.js';
-import {createTaskTemplate} from './components/task.js';
-import {createTaskEditTemplate} from './components/task-edit.js';
+import {createFilterTemplate} from './components/filter.js';
 import {createLoadMoreButtonTemplate} from './components/button.js';
+import {createTaskEditTemplate} from './components/task-edit.js';
+import {createTaskTemplate} from './components/task.js';
+import {createSiteMenuTemplate} from './components/menu.js';
+import {createSortingTemplate} from './components/sorting.js';
 import {generateFilters} from './mock/filter.js';
 import {generateTasks} from './mock/task.js';
 
@@ -25,16 +26,19 @@ render(siteHeaderElement, createSiteMenuTemplate(), `beforeend`);
 render(siteMainElement, createFilterTemplate(filters), `beforeend`);
 render(siteMainElement, createBoardTemplate(), `beforeend`);
 
-const taskListElement = siteMainElement.querySelector(`.board__tasks`);
 const boardElement = siteMainElement.querySelector(`.board`);
+const taskListElement = siteMainElement.querySelector(`.board__tasks`);
 
+
+render(boardElement, createSortingTemplate(), `afterbegin`);
 render(taskListElement, createTaskEditTemplate(tasks[0]), `beforeend`);
+
 
 let showingTasksCount = SHOWING_TASKS_COUNT_ON_START;
 
-for (let i = 1; i < showingTasksCount; i++) {
-  render(taskListElement, createTaskTemplate(tasks[i]), `beforeend`);
-}
+tasks.slice(1, showingTasksCount)
+  .forEach((task) => render(taskListElement,
+   createTaskTemplate(task), `beforeend`));
 
 render(boardElement, createLoadMoreButtonTemplate(), `beforeend`);
 
