@@ -3,23 +3,23 @@ import {formatTime} from "../utils.js";
 
 const createColorsMarkup = (colors, currentColor) => {
   return colors.map((color, index) => {
-      return (
-        `<input
-          type="radio"
-          id="color-${color}-${index}"
-          class="card__color-input card__color-input--${color} visually-hidden"
-          name="color"
-          value=${color}
-          ${currentColor === color ? `checked` : ``}
-        />
-        <label
-          for="color-${color}-${index}"
-          class="card__color card__color--${color}"
-          >${color}</label
-        >`
-      )
+    return (
+      `<input
+        type="radio"
+        id="color-${color}-${index}"
+        class="card__color-input card__color-input--${color} visually-hidden"
+        name="color"
+        value=${color}
+        ${currentColor === color ? `checked` : ``}
+      />
+      <label
+        for="color-${color}-${index}"
+        class="card__color card__color--${color}"
+        >${color}</label
+      >`
+    );
   }).join(`\n`);
-}
+};
 
 const createRepeatingDaysMarkup =
 (days, repeatingDays) => {
@@ -41,7 +41,7 @@ const createRepeatingDaysMarkup =
     );
   })
   .join(`\n`);
-}
+};
 
 const createTaskEditTemplate = (task) => {
   const {description, dueDate, color, repeatingDays} = task;
@@ -59,8 +59,8 @@ const createTaskEditTemplate = (task) => {
   const deadlineClass = isExpired ? `card--deadline` : ``;
 
   const colorsMarkup = createColorsMarkup(COLORS, color);
-  const repeatingDaysMarkup = createRepeatingDaysMarkup
-  (DAYS, repeatingDays);
+  const repeatingDaysMarkup = createRepeatingDaysMarkup(DAYS,
+      repeatingDays);
 
   return (
     `<article class="card card--edit card--${color}
@@ -92,19 +92,19 @@ const createTaskEditTemplate = (task) => {
                   </span>
                 </button>
               ${
-                isDateShowing ?
-                `<fieldset class="card__date-deadline">
-                  <label class="card__input-deadline-wrap">
-                    <input
-                      class="card__date"
-                      type="text"
-                      placeholder=""
-                      name="date"
-                      value="${date} ${time}"
-                    />
-                  </label>
-                </fieldset>` : ``
-              }
+    isDateShowing ?
+      `<fieldset class="card__date-deadline">
+        <label class="card__input-deadline-wrap">
+          <input
+            class="card__date"
+            type="text"
+            placeholder=""
+            name="date"
+            value="${date} ${time}"
+          />
+        </label>
+      </fieldset>` : ``
+    }
 
                 <button class="card__repeat-toggle" type="button">
                   repeat:<span class="card__repeat-status">
@@ -113,12 +113,12 @@ const createTaskEditTemplate = (task) => {
 
                 ${
     isRepeatingTask ?
-                `<fieldset class="card__repeat-days">
-                  <div class="card__repeat-days-inner">
-                    ${repeatingDaysMarkup}
-                  </div>
-                </fieldset>` : ``
-              }
+      `<fieldset class="card__repeat-days">
+        <div class="card__repeat-days-inner">
+          ${repeatingDaysMarkup}
+        </div>
+      </fieldset>` : ``
+    }
               </div>
             </div>
 

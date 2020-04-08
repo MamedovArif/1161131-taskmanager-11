@@ -15,12 +15,12 @@ const createFilterMarkup = (filter, isChecked) => {
       ${name} <span class="filter__${name}-count">${count}</span></label
     >`
   );
-}
+};
 
 const createFilterTemplate = () => {
   const filterMarkup =
   generateFilters().map((item, index) =>
-    createFilterMarkup(item, index===0)).join(`\n`);
+    createFilterMarkup(item, index === 0)).join(`\n`);
 
   return (
     `<section class="main__filter filter container">

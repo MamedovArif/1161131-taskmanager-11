@@ -8,6 +8,6 @@ const generateFilters = () => {
       count: Math.floor(Math.random() * 10),
     };
   });
-}
+};
 
 export {generateFilters};
