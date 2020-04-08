@@ -13,7 +13,7 @@ const generateTask = () => {
     description: `Example default task with default color.`,
     dueDate: Math.random() > 0.5 ? new Date() : null,
     repeatingDays: Object.assign({},
-      DefaultRepeatingDays, {mo:Math.random() > 0.5});
+      DefaultRepeatingDays, {mo: Math.random() > 0.5}),
     color: `pink`,
     isArchive: Math.random() > 0.5,
     isFavorite: Math.random() > 0.5,
