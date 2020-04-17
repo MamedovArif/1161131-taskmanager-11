@@ -12,7 +12,7 @@ export const render = (container, component, place) => {
       container.append(component.getElement());
       break;
     default:
-      throw new Error('Функция render принимает неверные данные');
+      throw new Error(`Функция render принимает неверные данные`);
   }
 };
 
@@ -23,7 +23,7 @@ export const createElement = (template) => {
   return newElement.firstChild;
 };
 
-export const replace = (newComponent, oldComponent)  => {
+export const replace = (newComponent, oldComponent) => {
   const newElement = newComponent.getElement();
   const oldElement = oldComponent.getElement();
   const parentElement = oldElement.parentElement;

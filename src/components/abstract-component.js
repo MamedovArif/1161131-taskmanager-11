@@ -3,8 +3,7 @@ import {createElement} from "../utils/render.js";
 export default class AbstarctComponent {
   constructor() {
     if (new.target === AbstarctComponent) {
-      throw new Error
-        (`Can't instantiate AbstractComponent, only concrete one.`);
+      throw new Error(`Can't instantiate AbstractComponent, only concrete one.`);
     }
     this._element = null;
   }
