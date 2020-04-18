@@ -1,5 +1,4 @@
-import {generateFilters} from '../mock/filter.js';
-import {createElement} from '../utils.js';
+import AbstractComponent from "./abstract-component.js";
 
 const createFilterMarkup = (filter, isChecked) => {
   const {name, count} = filter;
@@ -18,9 +17,9 @@ const createFilterMarkup = (filter, isChecked) => {
   );
 };
 
-const createFilterTemplate = () => {
+const createFilterTemplate = (filters) => {
   const filterMarkup =
-  generateFilters().map((item, index) =>
+  filters.map((item, index) =>
     createFilterMarkup(item, index === 0)).join(`\n`);
 
   return (
@@ -30,25 +29,13 @@ const createFilterTemplate = () => {
   );
 };
 
-export default class Filter {
+export default class Filter extends AbstractComponent {
   constructor(filters) {
+    super();
     this._filters = filters;
-    this._element = null;
   }
 
   getTemplate() {
     return createFilterTemplate(this._filters);
-  }
-
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
   }
 }
