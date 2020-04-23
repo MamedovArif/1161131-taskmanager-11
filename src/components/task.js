@@ -7,9 +7,7 @@ const createButtonMarkup = (name, isActive = true) => {
     `<button
       type="button"
       class="card__btn card__btn--${name} ${isActive ? `` : `card__btn--disabled`}"
-    >
-      ${name}
-    </button>`
+    >${name}</button>`
   );
 };
 
@@ -31,8 +29,10 @@ const createTaskTemplate = (task) => {
   some(Boolean) ? `card--repeat` : ``;
   const deadlineClass = isExpired ? `card--deadline` : ``;
 
+
   return (
-    `<article class="card card--${color} ${repeatClass} ${deadlineClass}">
+    `<article class="card card--${color}
+    ${repeatClass} ${deadlineClass}">
       <div class="card__form">
         <div class="card__inner">
           <div class="card__control">
@@ -84,7 +84,7 @@ export default class Task extends AbstractComponent {
         .addEventListener(`click`, handler);
   }
 
-  setFavotitesButtonClickHandler(handler) {
+  setFavoritesButtonClickHandler(handler) {
     this.getElement().querySelector(`.card__btn--favorites`)
         .addEventListener(`click`, handler);
   }
