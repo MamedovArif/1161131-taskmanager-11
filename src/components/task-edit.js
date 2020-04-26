@@ -157,6 +157,7 @@ export default class TaskEdit extends AbstractSmartComponent {
     this._isDateShowing = !!task.dueDate;
     this._isRepeatingTask = Object.values(task.repeatingDays).some(Boolean);
     this._activeRepeatingDays = Object.assign({}, task.repeatingDays);
+    console.log(task.repeatingDays);
     this._flatpickr = null;
     this._submitHandler = null;
 
@@ -215,6 +216,11 @@ export default class TaskEdit extends AbstractSmartComponent {
 
   _subscribeOnEvents() {
     const element = this.getElement();
+    element.querySelector(`.card__colors-wrap`)
+        .addEventListener(`change`, (evt) => {
+          this._task.color = evt.target.value;
+          this.rerender();
+        })
     element.querySelector(`.card__date-deadline-toggle`)
         .addEventListener(`click`, () => {
           this._isDateShowing = !this._isDateShowing;
