@@ -1,8 +1,15 @@
-const COLORS = [`black`, `yellow`, `blue`, `green`, `pink`];
+const COLOR = {
+  BLACK: `black`,
+  YELLOW: `yellow`,
+  BLUE: `blue`,
+  GREEN: `green`,
+  PINK: `pink`,
+};
+export const COLORS = Object.values(COLOR);
 
-const DAYS = [`mo`, `tu`, `we`, `th`, `fr`, `sa`, `su`];
+export const DAYS = [`mo`, `tu`, `we`, `th`, `fr`, `sa`, `su`];
 
-const MONTH_NAMES = [
+export const MONTH_NAMES = [
   `January`,
   `February`,
   `March`,
@@ -25,5 +32,3 @@ export const FilterType = {
   REPEATING: `repeating`,
   TODAY: `today`,
 };
-
-export {COLORS, DAYS, MONTH_NAMES};
