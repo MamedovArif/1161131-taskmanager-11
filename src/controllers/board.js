@@ -117,7 +117,7 @@ export default class BoardController {
   }
 
   _updateTasks(count) {
-    this.removeTasks();
+    this._removeTasks();
     this._renderTasks(this._tasksModel.getTasks().slice(0, count));
     this._renderLoadMoreButton();
   }
@@ -151,7 +151,7 @@ export default class BoardController {
   }
 
   _onFilterChange() {
-    this._updateTasks(SHOWING_TASK_COUNT_ON_START);
+    this._updateTasks(SHOWING_TASKS_COUNT_ON_START);
   }
 }
 
