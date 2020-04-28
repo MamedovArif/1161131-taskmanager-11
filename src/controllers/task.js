@@ -1,6 +1,6 @@
 import TaskComponent from "../components/task.js";
 import TaskEditComponent from "../components/task-edit.js";
-import {render, replace, RenderPosition} from "../utils/render.js";
+import {render, replace, remove, RenderPosition} from "../utils/render.js";
 
 const Mode = {
   DEFAULT: `default`,
@@ -37,19 +37,6 @@ export default class TaskController {
       }));
     }); // контроллер вызывает слушателей события из компонент
 
-    //   _onDataChange(taskController, oldData, newData) {
-    //   const index = this._tasks.findIndex((item) => item === oldData);
-
-    //   if (index === -1) {
-    //     return;
-    //   }
-
-    //   this._tasks = [].concat(this._tasks.slice(0, index), newData,
-    //     this._tasks.slice(index + 1));
-
-    //   taskController.render(this._tasks[index]);
-    // }
-
     this._taskComponent.setFavoritesButtonClickHandler(() => {
       this._onDataChange(this, task, Object.assign({}, task, {
         isFavorite: !task.isFavorite,
@@ -74,6 +61,12 @@ export default class TaskController {
     if (this._mode !== Mode.DEFAULT) {
       this._replaceEditToTask();
     }
+  }
+
+  destroy() {
+    remove(this._taskEditComponent);
+    remove(this._taskComponent);
+    document.removeEventListener(`keydown`, this._onEscKeyDown);
   }
 
   _replaceTaskToEdit() {
