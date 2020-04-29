@@ -59,6 +59,6 @@ export default class SiteMenu extends AbstractComponent {
 
       const menuItem = evt.target.id;
       handler(menuItem);
-    })
+    });
   }
 }

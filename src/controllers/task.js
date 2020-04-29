@@ -65,14 +65,12 @@ export default class TaskController {
 
     this._taskEditComponent.setSubmitHandler((evt) => {
       evt.preventDefault();
-      //this._replaceEditToTask();
       const data = this._taskEditComponent.getData();
       this._onDataChange(this, task, data);
-      //document.removeEventListener(`keydown`, this._onEscKeyDown);
     });
     this._taskEditComponent.setDeleteButtonClickHandler(() => {
       this._onDataChange(this, task, null);
-    })
+    });
 
     // if (oldTaskEditComponent && oldTaskComponent) {
     //   replace(this._taskComponent, oldTaskComponent);

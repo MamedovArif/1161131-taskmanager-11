@@ -22,4 +22,4 @@ export const isOneDay = (dateA, dateB) => {
   const b = moment(dateB);
   return a.diff(b, `days`) === 0 &&
       dateA.getDate() === dateB.getDate();
-}
+};

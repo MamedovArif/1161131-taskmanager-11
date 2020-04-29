@@ -1,4 +1,3 @@
-//export const getTasksByFilter = (tasks) => {
 import {isRepeating, isOneDay, isOverdueDate} from "./common.js";
 import {FilterType} from "../const.js";
 
