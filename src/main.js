@@ -6,7 +6,7 @@ import TasksModel from "./models/tasks.js";
 import {generateTasks} from './mock/task.js';
 import {render, RenderPosition} from './utils/render.js';
 
-const TASK_COUNT = 28;
+const TASK_COUNT = 30;
 
 const siteMainElement = document.querySelector(`.main`);
 const siteHeaderElement = siteMainElement.querySelector(`.main__control`);

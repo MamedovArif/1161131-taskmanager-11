@@ -45,7 +45,7 @@ export default class SiteMenu extends AbstractComponent {
   }
 
   setActiveItem(menuItem) {
-    const item = this._getElement().querySelector(`#${menuItem}`);
+    const item = this.getElement().querySelector(`#${menuItem}`);
     if (item) {
       item.checked = true;
     }

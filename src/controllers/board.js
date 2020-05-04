@@ -122,11 +122,6 @@ export default class BoardController {
   }
 
   _onDataChange(taskController, oldData, newData) {
-    // const isSuccess = this._tasksModel.updateTask(oldData.id, newData)
-
-    // if (isSuccess) {
-    //   taskController.render(newData);
-    // }
     if (oldData === EmptyTask) {
       this._creatingTask = null;
       if (newData === null) {
@@ -183,6 +178,7 @@ export default class BoardController {
     const sortedTasks = getSortedTasks(tasks,
         this._sortComponent.getSortType(), prevTasksCount,
         this._showingTasksCount);
+    this._renderTasks(sortedTasks);
     if (this._showingTasksCount >= sortedTasks.length) {
       remove(this._loadMoreButtonComponent);
     }
