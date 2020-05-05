@@ -187,5 +187,13 @@ export default class BoardController {
   _onFilterChange() {
     this._updateTasks(SHOWING_TASKS_COUNT_ON_START);
   }
+
+  hide() {
+    this._container.hide();
+  }
+
+  show() {
+    this._container.show();
+  }
 }
 
