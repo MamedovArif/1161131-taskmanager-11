@@ -1,7 +1,7 @@
 import AbstractSmartComponent from "./abstract-smart-component.js";
 import {isOneDay} from "../utils/common.js";
 import Chart from "chart.js";
-import ChartDataLabels from 'chartjs-plugin-datalabels';
+import ChartDataLabels from "chartjs-plugin-datalabels";
 import moment from "moment";
 import flatpickr from "flatpickr";
 
@@ -113,12 +113,15 @@ const renderColorsChart = (colorsCtx, tasks) => {
 
 const renderDaysChart = (daysCtx, tasks, dateFrom, dateTo) => {
   const days = calculateBetweenDates(dateFrom, dateTo);
+  // console.log(days);
 
   const taskCountOnDay = days.map((date) => {
     return tasks.filter((task) => {
       return isOneDay(task.dueDate, date);
     }).length;
   });
+
+  // console.log(taskCountOnDay);
 
   const formattedDates = days.map((it) => moment(it).format(`DD MMM`));
 
@@ -245,7 +248,6 @@ export default class Statistics extends AbstractSmartComponent {
     this._tasks = tasks;
     this._dateFrom = dateFrom;
     this._dateTo = dateTo;
-
     super.rerender();
 
     this._renderCharts();
