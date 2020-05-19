@@ -13,7 +13,7 @@ const siteHeaderElement = siteMainElement.querySelector(`.main__control`);
 const siteMenuComponent = new SiteMenuComponent();
 render(siteHeaderElement, siteMenuComponent, RenderPosition.BEFOREEND);
 
-const AUTHORIZATION = `Basic hlkgjlfjljl56769hg`;
+const AUTHORIZATION = `Basic hlkgjlfjljl56769hg1`;
 const END_POINT = `https://11.ecmascript.pages.academy/task-manager`;
 const api = new API(END_POINT, AUTHORIZATION);
 const tasksModel = new TasksModel();
